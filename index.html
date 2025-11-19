@@ -46,6 +46,7 @@
             <input type="text" id="lorry_number" placeholder="Lorry Number" class="w-full p-3 border rounded-md" required>
             <input type="text" id="lorry_location" placeholder="Lorry Location Address" class="w-full p-3 border rounded-md" required>
             <input type="text" id="contact" placeholder="Contact Number" class="w-full p-3 border rounded-md" required>
+            <input type="text" id="load" placeholder="Load Capacity (Tons)" class="w-full p-3 border rounded-md" required>
             <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 shadow-md">
                 Register
             </button>
@@ -59,8 +60,8 @@
         let lorryNumber = document.getElementById("lorry_number").value;
         let lorryLocation = document.getElementById("lorry_location").value;
         let contact = document.getElementById("contact").value;
-        
-        let payload = { name, lorryNumber, lorryLocation, contact };
+        let load = document.getElementById("load").value;  
+        let payload = { name, lorryNumber, lorryLocation, contact, load };
     
         fetch("https://script.google.com/macros/s/AKfycbyzal1NLXdDgMB22zdn-2C29YUPUM6lVG5I5nzR5bOtxeVmT4_VkOZlZemVnNZG8TY4/exec", {
             method: "POST",
@@ -72,7 +73,7 @@
             document.getElementById("successMessage").classList.remove("hidden");
             setTimeout(() => {
                 window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    `New Lorry Registration:\nName: ${name}\nLorry No: ${lorryNumber}\nLocation: ${lorryLocation}\nContact: ${contact}`
+                    `New Lorry Registration:\nName: ${name}\nLorry No: ${lorryNumber}\nLocation: ${lorryLocation}\nContact: ${contact}\nLoadCapacity: ${load}
                 )}`, "_blank");
             }, 2000);
         })
