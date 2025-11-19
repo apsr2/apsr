@@ -73,7 +73,7 @@
             document.getElementById("successMessage").classList.remove("hidden");
             setTimeout(() => {
                 window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    `New Lorry Registration:\nName: ${name}\nLorry No: ${lorryNumber}\nLocation: ${lorryLocation}\nContact: ${contact}\nLoadCapacity: ${load}
+                    `New Lorry Registration:\nName: ${name}\nLorry No: ${lorryNumber}\nLocation: ${lorryLocation}\nContact: ${contact}\nLoadCapacity: ${load}`
                 )}`, "_blank");
             }, 2000);
         })
