@@ -72,10 +72,17 @@
         .then(() => {
             document.getElementById("successMessage").classList.remove("hidden");
             setTimeout(() => {
-                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    `New Lorry Registration:\nName: ${name}\nLorry No: ${lorryNumber}\nLocation: ${lorryLocation}\nContact: ${contact}\nLoadCapacity: ${load}`
-                )}`, "_blank");
-            }, 2000);
+                const message = `New Lorry Registration:
+                Name: ${name}
+                Lorry No: ${lorryNumber}
+                Location: ${lorryLocation}
+                Contact: ${contact}
+                Load Capacity: ${load}`;
+
+                const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+                window.open(url, "_blank");
+                }, 2000);
+
         })
         .catch(error => {
             console.error("Fetch Error:", error);
